@@ -8,15 +8,12 @@ import random
 
 app = Flask(__name__)
 
-<<<<<<< HEAD
 # try:
 #     camera = cv2.VideoCapture(0)  # use 0 for web camera
 #
 # except:
 #     pass
-=======
 
->>>>>>> ec9dc35c7244d11948cd30fe7022c5cb16ae8e57
 
 # Load Yolo
 net = cv2.dnn.readNet("weights/yolov3-tiny.weights", "cfg/yolov3-tiny.cfg")
