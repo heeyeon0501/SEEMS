@@ -229,4 +229,4 @@ def gen_frames():  # generate frame by frame from camera
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
