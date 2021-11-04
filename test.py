@@ -238,8 +238,6 @@ def gen_frames():  # generate frame by frame from camera
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
+
     app.run(debug=False)
-=======
-    app.run(debug=False)
->>>>>>> ec9dc35c7244d11948cd30fe7022c5cb16ae8e57
+
