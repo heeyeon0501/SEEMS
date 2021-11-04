@@ -8,7 +8,11 @@ import random
 
 app = Flask(__name__)
 
-camera = cv2.VideoCapture(0)  # use 0 for web camera
+# try:
+#     camera = cv2.VideoCapture(0)  # use 0 for web camera
+#
+# except:
+#     pass
 
 # Load Yolo
 net = cv2.dnn.readNet("weights/yolov4-tiny.weights", "cfg/yolov4-tiny.cfg")
@@ -152,6 +156,8 @@ def gen_frames():  # generate frame by frame from camera
 
     while True:
         # Capture frame-by-frame
+        camera = cv2.VideoCapture(0)
+
         success, frame = camera.read()  # read the camera frame
         # 영상 좌우반전
         frame = cv2.flip(frame, 1)
@@ -229,4 +235,4 @@ def gen_frames():  # generate frame by frame from camera
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
