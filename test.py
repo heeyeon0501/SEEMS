@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 
 # Load Yolo
-net = cv2.dnn.readNet("weights/yolov3-tiny.weights", "cfg/yolov3-tiny.cfg")
+net = cv2.dnn.readNet("weights/yolov4-tiny.weights", "cfg/yolov4-tiny.cfg")
 classes = []
 with open("coco.names", "r") as f:
     classes = [line.strip() for line in f.readlines()]
