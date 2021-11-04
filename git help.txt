@@ -1,0 +1,9 @@
+
+lfs 커밋되어있을 때 지우는 법
+java -jar bfg-1.14.0.jar --convert-to-git-lfs '*.weights' --no-blob-protection
+
+origin 이름 main
+
+EC2 에서
+sudo apt 말고
+sudo pip 로 하기
