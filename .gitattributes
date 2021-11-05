@@ -1,1 +1,5 @@
 *.weights filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
+=======
+*weights filter=lfs diff=lfs merge=lfs -text
+>>>>>>> 0c719664829afa699517c81e46f233c7c2cd62b8
