@@ -8,15 +8,8 @@ import random
 
 app = Flask(__name__)
 
-
-# try:
-#     camera = cv2.VideoCapture(0)  # use 0 for web camera
-#
-# except:
-#     pass
-
-
 # Load Yolo
+
 net = cv2.dnn.readNet("weights/yolov3-tiny.weights", "cfg/yolov3-tiny.cfg")
 classes = []
 with open("coco.names", "r") as f:
@@ -25,7 +18,8 @@ layer_names = net.getLayerNames()
 output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
-# Loading camera
+#속도 상 여기가 나음.. aws 올릴때 문제가 되면 gen_frames()로 옮김
+camera = cv2.VideoCapture(0)  # use 0 for web camera
 
 font = cv2.FONT_HERSHEY_PLAIN
 starting_time = time.time()
@@ -50,64 +44,106 @@ def save_feed():
 
     print(index)
 
-    if index == 0:
-        if 'cell phone' in save:
-            page_selection = 'goodResult.html'
-            save.clear()
-        else:
-            page_selection = 'bad_index.html'
-            save.clear()
-    elif index == 1:
-        if 'bowl' in save:
-            page_selection = 'goodResult.html'
-            save.clear()
-        else:
-            page_selection = 'bad_index.html'
-            save.clear()
-    elif index == 2:
-        if 'cup' in save:
-            page_selection = 'goodResult.html'
-            save.clear()
-        else:
-            page_selection = 'bad_index.html'
-            save.clear()
-    elif index == 3:
-        if 'fork' in save:
-            page_selection = 'goodResult.html'
-            save.clear()
-        else:
-            page_selection = 'bad_index.html'
-            save.clear()
-    elif index == 4:
-        if 'mouse' in save:
-            page_selection = 'goodResult.html'
-            save.clear()
-        else:
-            page_selection = 'bad_index.html'
-            save.clear()
-    elif index == 5:
-        if 'spoon' in save:
-            page_selection = 'goodResult.html'
-            save.clear()
-        else:
-            page_selection = 'bad_index.html'
-            save.clear()
-    elif index == 6:
-        if 'toothbrush' in save:
-            page_selection = 'goodResult.html'
-            save.clear()
-        else:
-            page_selection = 'bad_index.html'
-            save.clear()
-    elif index == 7:
-        if 'cell phone' in save:
-            page_selection = 'goodResult.html'
-            save.clear()
-        else:
-            page_selection = 'bad_index.html'
-            save.clear()
+    if menu_selection == 'index_O.html' :
 
-    print(page_selection)
+        if index == 0:
+            if 'cell phone' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 1:
+            if 'bowl' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 2:
+            if 'cup' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 3:
+            if 'fork' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 4:
+            if 'mouse' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 5:
+            if 'spoon' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 6:
+            if 'toothbrush' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 7:
+            if 'cell phone' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+
+        print(page_selection)
+
+    else:
+        if index == 0:
+            if 'banana' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 1:
+            if 'apple' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 2:
+            if 'orange' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 3:
+            if 'broccoli' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+        elif index == 4:
+            if 'carrot' in save:
+                page_selection = 'goodResult.html'
+                save.clear()
+            else:
+                page_selection = 'bad_index.html'
+                save.clear()
+
+        print(page_selection)
+
 
     # return generate_save()
     return render_template(page_selection)
@@ -123,45 +159,78 @@ def manual():
 
     return render_template('manual.html')
 
-@app.route('/3sec')
-def T3sec():
+@app.route('/menu')
+def menu():
 
-    return render_template('3sec.html')
+    return render_template('menu.html')
 
-@app.route('/2sec')
-def T2sec():
+@app.route('/3seco')
+def T3seco():
 
-    return render_template('2sec.html')
+    return render_template('3seco.html')
 
-@app.route('/1sec')
-def T1sec():
+@app.route('/2seco')
+def T2seco():
 
-    return render_template('1sec.html')
+    return render_template('2seco.html')
+
+@app.route('/1seco')
+def T1seco():
+
+    global selection
+
+    selection = 'o'
+
+    return render_template('1seco.html')
+
+@app.route('/3secf')
+def T3secf():
+
+    return render_template('3secf.html')
+
+@app.route('/2secf')
+def T2secf():
+
+    return render_template('2secf.html')
+
+@app.route('/1secf')
+def T1secf():
+    global selection
+
+    selection = 'f'
+
+    return render_template('1secf.html')
 
 
-@app.route('/game', methods=['GET','POST'])
+@app.route('/game')
 def index():
     """Video streaming page."""
 
-
     global index
+    global menu_selection
 
-    index = random.randint(0,7)
+    menu_selection = ''
+
+    if selection == 'f':
+        menu_selection = 'index_F.html'
+        index = random.randint(0, 7)
+    else :
+        menu_selection = 'index_O.html'
+        index = random.randint(0, 4)
 
 
-    return render_template('index.html', index=index)
+    return render_template(menu_selection, index=index)
 
 
 def gen_frames():  # generate frame by frame from camera
 
+
     frame_id = 0
 
     while True:
-        camera = cv2.VideoCapture(0)  # use 0 for web camera
-        
-        # Capture frame-by-frame
-        camera = cv2.VideoCapture(0)
 
+        # Capture frame-by-frame
+        
         success, frame = camera.read()  # read the camera frame
         # 영상 좌우반전
         frame = cv2.flip(frame, 1)
