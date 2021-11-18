@@ -2,7 +2,7 @@
 Using objects and fruits that can be easily found at home
 
 # File attributions
-Python, HTML, JS, CSS
+Python, HTML, JS, CSS, SCSS
 
 # Using Live-Streaming-using-OpenCV-Flask and YOLO
 A Flask Web-App to stream live from local webcam
